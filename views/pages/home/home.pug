@@ -1,0 +1,53 @@
+extends ../../layouts/header/header.pug
+
+
+
+//- block title
+//-     title= title 
+
+
+
+//- block cssLink
+//-     link(rel="stylesheet", href="/css/home.min.css")
+
+
+
+//- block jsScript
+//-     script(src="/js/home.js" defer) 
+
+block bodyContent
+    .main   
+        .container 
+
+            .search_form.mt-3
+                .input-group.mb-3
+                    input.form-control(type='text' placeholder="Search Word" aria-label="Search Word" aria-describedby='button-addon2')
+                    button#button-addon2.btn.btn-outline-secondary(type='button') Search
+ 
+
+            .inp_form
+                form(action="", method="post") 
+                    .mb-3
+                        label.form-label(for='exampleFormControlInput1') Enter Your Word
+                        input#exampleFormControlInput1.form-control(type='email' placeholder='Enter Your Word')
+                    .mb-3
+                        label.form-label(for='exampleFormControlTextarea1') Enter Your Word Description
+                        textarea#exampleFormControlTextarea1.form-control(rows='3' placeholder="Enter Your Word Description")
+                    .mb-3
+                        input.btn.btn-info(type="submit", value="Submit")
+            table.table
+                thead
+                    tr
+                    th(scope='col') #
+                    th(scope='col') First
+                    th(scope='col') Last
+                tbody
+                    tr
+                    th(scope='row') 1
+                    td Mark
+                    td Otto
+                    tr
+                    th(scope='row') 2
+                    td Jacob
+                    td Thornton
+                    

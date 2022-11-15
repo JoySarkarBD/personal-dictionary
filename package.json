@@ -1,0 +1,30 @@
+{
+  "name": "project-personal-dictionary",
+  "version": "1.0.0",
+  "description": "project-personal-dictionary",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=production node server.js",
+    "dev": "NODE_ENV=development nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "front_end_and_back_end": "Arunabh Newar",
+    "front_end_and_back_end": "Joy Sarkar",
+    "front_end_and_back_end": "MD. Mehedi Hasan"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.14.2",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.2",
+    "multer-uploader": "^1.0.9",
+    "nodemailer": "^6.8.0",
+    "pug": "^3.0.2"
+  }
+}

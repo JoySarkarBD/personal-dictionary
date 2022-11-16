@@ -12,8 +12,8 @@ extends ../../layouts/header/header.pug
 
 
 
-//- block jsScript
-//-     script(src="/js/home.js" defer) 
+block jsScript
+    script(src="/js/app.js" defer) 
 
 block bodyContent
     .main   
@@ -49,13 +49,19 @@ block bodyContent
                             th(scope='col') #
                             th(scope='col') Word
                             th(scope='col') Description
+                            th(scope='col') Actions
                         tbody
                             each val, i in result
                                 tr(_id = val._id)
                                 th(scope='row') #{i+1}
                                 td #{val.word}
                                 td #{val.description}
-                            
+                                td  
+                                    button#edit.me-2.btn.btn-info.fw-bold.text-white 
+                                        | Edit
+                                    button#delete.me-2.btn.btn-danger.fw-bold
+                                        | Delete
+
                             
                            
                 else 

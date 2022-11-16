@@ -26,7 +26,7 @@ block bodyContent
  
 
             .inp_form
-                form(action="/", method="post") 
+                form#form(action="/", method="post") 
                     .mb-3
                         label.form-label(for='word') Enter Your Word
                         input#word.form-control(type='text'  name="word")
@@ -45,7 +45,6 @@ block bodyContent
             table.table
                 if(result.length > 0)
                         thead
-                            tr
                             th(scope='col') #
                             th(scope='col') Word
                             th(scope='col') Description
@@ -53,14 +52,14 @@ block bodyContent
                         tbody
                             each val, i in result
                                 tr(_id = val._id)
-                                th(scope='row') #{i+1}
-                                td #{val.word}
-                                td #{val.description}
-                                td  
-                                    button#edit.me-2.btn.btn-info.fw-bold.text-white 
-                                        | Edit
-                                    button#delete.me-2.btn.btn-danger.fw-bold
-                                        | Delete
+                                    th(scope='row') #{i+1}
+                                    td #{val.word}
+                                    td #{val.description}
+                                    td  
+                                        button#edit.me-2.btn.btn-info.fw-bold.text-white 
+                                            | Edit
+                                        button#delete.me-2.btn.btn-danger.fw-bold
+                                            | Delete
 
                             
                            

@@ -8,9 +8,8 @@ const postDictionary = async (req, res) => {
     const { word, description } = req.body;
     const dicObj = new Dictionary({ word, description });
     const dicRes = await dicObj.save();
-    const result = await Dictionary.find({});
     if (dicRes._id) {
-      res.render("pages/home/home", { error: {}, result });
+      return res.redirect("/");
     } else {
       createHttpError(500, "Internal server error");
     }

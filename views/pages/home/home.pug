@@ -41,7 +41,7 @@ block bodyContent
                             .alert.alert-danger(role='alert')
                                 | #{error.description.msg}
                     .mb-3
-                        input.btn.btn-info(type="submit", value="Submit")
+                        input#update.btn.btn-info(type="submit", value="Submit")
             table.table
                 if(result.length > 0)
                         thead
@@ -51,15 +51,14 @@ block bodyContent
                             th(scope='col') Actions
                         tbody
                             each val, i in result
-                                tr(_id = val._id)
+                                tr(data-id= val._id)
                                     th(scope='row') #{i+1}
-                                    td #{val.word}
-                                    td #{val.description}
+                                    td.word #{val.word}
+                                    td.description #{val.description}
                                     td  
-                                        button#edit.me-2.btn.btn-info.fw-bold.text-white 
+                                        button#edit(data-id= val._id).me-2.btn.btn-info.fw-bold.text-white 
                                             | Edit
-                                        button#delete.me-2.btn.btn-danger.fw-bold
-                                            | Delete
+                                        a.btn.btn-danger(href='/delete/'+val._id) Delete
 
                             
                            

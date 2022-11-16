@@ -26,28 +26,38 @@ block bodyContent
  
 
             .inp_form
-                form(action="", method="post") 
+                form(action="/", method="post") 
                     .mb-3
-                        label.form-label(for='exampleFormControlInput1') Enter Your Word
-                        input#exampleFormControlInput1.form-control(type='email' placeholder='Enter Your Word')
+                        label.form-label(for='word') Enter Your Word
+                        input#word.form-control(type='text'  name="word")
+                        if(error.word) 
+                            .alert.alert-danger(role='alert')
+                                | #{error.word.msg}
+                        
                     .mb-3
-                        label.form-label(for='exampleFormControlTextarea1') Enter Your Word Description
-                        textarea#exampleFormControlTextarea1.form-control(rows='3' placeholder="Enter Your Word Description")
+                        label.form-label(for='description') Enter Your Word Description
+                        textarea#description.form-control(rows='3' type="text" name="description" )
+                        if(error.description) 
+                            .alert.alert-danger(role='alert')
+                                | #{error.description.msg}
                     .mb-3
                         input.btn.btn-info(type="submit", value="Submit")
             table.table
-                thead
-                    tr
-                    th(scope='col') #
-                    th(scope='col') First
-                    th(scope='col') Last
-                tbody
-                    tr
-                    th(scope='row') 1
-                    td Mark
-                    td Otto
-                    tr
-                    th(scope='row') 2
-                    td Jacob
-                    td Thornton
+                if(result.length > 0)
+                        thead
+                            tr
+                            th(scope='col') #
+                            th(scope='col') Word
+                            th(scope='col') Description
+                        tbody
+                            each val, i in result
+                                tr(_id = val._id)
+                                th(scope='row') #{i+1}
+                                td #{val.word}
+                                td #{val.description}
+                            
+                            
+                           
+                else 
+                    h1.text-center No Data Found
                     

@@ -8,6 +8,8 @@ const {
   notFoundHandler,
   errorHandler,
 } = require("./middlewares/common/notFound&ErrorHandler/notFound&ErrorHandler");
+const dictionaryRoute = require("./routes/dictionaryRoute");
+const postDictionaryRoute = require("./routes/postDictionary");
 
 // app initialization
 const app = express();
@@ -23,9 +25,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-app.get("/", (req, res) => {
-  res.render("pages/home/home.pug");
-});
+/* dictionary operation route */
+app.use("/", postDictionaryRoute);
+
+/* home */
+app.use(dictionaryRoute);
 
 // routes
 
@@ -35,14 +39,14 @@ app.use(notFoundHandler);
 // error Handler
 app.use(errorHandler);
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT || 3000, () => {
   try {
     mongoose.connect(process.env.DB_URI, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
     });
     console.log("DB connected Successfully!!");
-    console.log(`App listening on port ${process.env.PORT || 5000}`);
+    console.log(`App listening on port ${process.env.PORT || 3000}`);
   } catch (error) {
     console.log(error);
   }

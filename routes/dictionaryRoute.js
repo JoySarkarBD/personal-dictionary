@@ -1,10 +1,10 @@
 /* dependencies */
 
-const getDictionary = require("../controllers/dictionary/getDictionary");
+const getDictionaryPage = require("../controllers/dictionary/getDictionaryPage");
 const dictionaryRoute = require("express").Router();
 
 /* get home page */
-dictionaryRoute.get("/", getDictionary);
+dictionaryRoute.get("/", getDictionaryPage);
 
 /* post  */
 

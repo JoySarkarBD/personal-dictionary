@@ -1,7 +1,7 @@
 const deleteData = require("../controllers/dictionary/deleteData");
 const postDictionary = require("../controllers/dictionary/postDictionary");
 const updateDictionary = require("../controllers/dictionary/updateDictionary");
-const getDictionary = require("../middlewares/dictionary/getDictionary");
+const getDictionaryData = require("../middlewares/dictionary/getDictionaryData");
 const getDictionaryResult = require("../middlewares/dictionary/getDictionaryResult");
 
 const postDictionaryRoute = require("express").Router();
@@ -9,7 +9,7 @@ const postDictionaryRoute = require("express").Router();
 /* add a data */
 postDictionaryRoute.post(
   "/",
-  getDictionary(),
+  getDictionaryData(),
   getDictionaryResult,
   postDictionary
 );
@@ -17,7 +17,7 @@ postDictionaryRoute.post(
 /* update data */
 postDictionaryRoute.post(
   "/update/:id",
-  getDictionary(),
+  getDictionaryData(),
   getDictionaryResult,
   updateDictionary
 );

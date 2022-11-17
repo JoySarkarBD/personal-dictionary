@@ -2,7 +2,7 @@
 
 const Dictionary = require("../../models/Dictionary-Data/DictionaryModel");
 
-const getDictionary = async (req, res) => {
+const getDictionaryPage = async (req, res) => {
   try {
     const result = await Dictionary.find({});
     res.render("pages/home/home.pug", { error: {}, result });
@@ -11,4 +11,4 @@ const getDictionary = async (req, res) => {
   }
 };
 
-module.exports = getDictionary;
+module.exports = getDictionaryPage;

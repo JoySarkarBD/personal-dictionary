@@ -7,8 +7,8 @@ extends ../../layouts/header/header.pug
 
 
 
-//- block cssLink
-//-     link(rel="stylesheet", href="/css/home.min.css")
+block cssLink
+    link(rel="stylesheet", href="/css/home.min.css")
 
 
 
@@ -17,13 +17,27 @@ block jsScript
 
 block bodyContent
     .main   
-        .container 
+        .container.position-relative  
 
             .search_form.mt-3
                 .input-group.mb-3
                     input.form-control(type='text' placeholder="Search Word" aria-label="Search Word" aria-describedby='button-addon2')
                     button#button-addon2.btn.btn-outline-secondary(type='button') Search
  
+            .search_result 
+                table.table.table-success.position-absolute.zindex-modal.d-none
+                    thead
+                        tr
+                        th(scope='col') #
+                        th(scope='col') Word
+                        th(scope='col') Description
+                    tbody
+                        tr
+                        th(scope='row') 
+                            input#flexCheckDefault.form-check-input(type='checkbox' value='')
+                        th(scope='row') 1
+                        td Hello
+                        td Hello is a very important word.
 
             .inp_form
                 form#form(action="/", method="post") 
@@ -45,6 +59,8 @@ block bodyContent
             table.table
                 if(result.length > 0)
                         thead
+                            th(scope='col') 
+                                input#bulk_check.form-check-input(type='checkbox' value='')
                             th(scope='col') #
                             th(scope='col') Word
                             th(scope='col') Description
@@ -52,6 +68,8 @@ block bodyContent
                         tbody
                             each val, i in result
                                 tr(data-id= val._id)
+                                    th(scope='row') 
+                                        input.check_box.form-check-input(type='checkbox' value='')
                                     th(scope='row') #{i+1}
                                     td.word #{val.word}
                                     td.description #{val.description}
@@ -65,3 +83,17 @@ block bodyContent
                 else 
                     h1.text-center No Data Found
                     
+            nav(aria-label='Page navigation example')
+                    ul.pagination.justify-content-center
+                        li.page-item
+                        a.page-link(href='#' aria-label='Previous')
+                            span(aria-hidden='true') &laquo;
+                        li.page-item
+                        a.page-link(href='#') 1
+                        li.page-item
+                        a.page-link(href='#') 2
+                        li.page-item
+                        a.page-link(href='#') 3
+                        li.page-item
+                        a.page-link(href='#' aria-label='Next')
+                            span(aria-hidden='true') &raquo;

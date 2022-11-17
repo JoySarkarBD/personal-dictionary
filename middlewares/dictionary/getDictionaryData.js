@@ -2,7 +2,7 @@
 
 const { check } = require("express-validator");
 
-const getDictionary = (req, res, next) => {
+const getDictionaryData = (req, res, next) => {
   return [
     check("word").trim().notEmpty().withMessage("word must be required"),
     check("description")
@@ -12,4 +12,4 @@ const getDictionary = (req, res, next) => {
   ];
 };
 
-module.exports = getDictionary;
+module.exports = getDictionaryData;
